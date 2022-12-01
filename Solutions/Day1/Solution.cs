@@ -13,5 +13,16 @@ namespace AdventOfCode2022.Solutions.Day1
                                       .Sum())
                         .Max();
         }
+
+        public static int SolvePart2(string input)
+        {
+            return input.Split("\n\n")
+                        .Select(e => e.Split("\n", StringSplitOptions.RemoveEmptyEntries)
+                                      .Select(c => int.Parse(c))
+                                      .Sum())
+                        .OrderByDescending(n => n)
+                        .Take(3)
+                        .Sum();
+        }
     }
 }
