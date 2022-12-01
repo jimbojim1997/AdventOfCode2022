@@ -6,6 +6,10 @@
     <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
+
+    <RootNamespace>AdventOfCode2022.Tests</RootNamespace>
+
+    <AssemblyName>AdventOfCode2022.Tests</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

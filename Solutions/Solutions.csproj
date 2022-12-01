@@ -4,6 +4,8 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RootNamespace>AdventOfCode2022.Solutions</RootNamespace>
+    <AssemblyName>AdventOfCode2022.Solutions</AssemblyName>
   </PropertyGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace Solutions.Day1
+﻿namespace AdventOfCode2022.Solutions.Day1
 {
     public static class Solution
     {

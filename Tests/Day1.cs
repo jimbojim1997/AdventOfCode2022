@@ -1,4 +1,4 @@
-﻿namespace Tests
+﻿namespace AdventOfCode2022.Tests
 {
     internal class Day1
     {
