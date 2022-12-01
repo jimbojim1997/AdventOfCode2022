@@ -2,7 +2,7 @@
 {
     public static class Solution
     {
-        public static int Solve(string input)
+        public static int SolvePart1(string input)
         {
             int maxValue = int.MinValue;
             int maxIndex = 0;
