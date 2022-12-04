@@ -19,6 +19,22 @@
             return totalEncompasses;
         }
 
+        public static int SolvePart2(string input)
+        {
+            int totalEncompasses = 0;
+
+            foreach (string pair in input.Split("\n"))
+            {
+                string[] elves = pair.Split(",");
+                Range e1 = ExtractRange(elves[0]);
+                Range e2 = ExtractRange(elves[1]);
+
+                if (RangeOverlap(e1, e2)) totalEncompasses++;
+            }
+
+            return totalEncompasses;
+        }
+
         private static Range ExtractRange(string range)
         {
             string[] parts = range.Split("-");
@@ -28,6 +44,11 @@
         private static bool RangeEncompasses(Range outer, Range inner)
         {
             return outer.Max >= inner.Max && outer.Min <= inner.Min;
+        }
+
+        private static bool RangeOverlap(Range a, Range b)
+        {
+            return a.Max >= b.Min && a.Min <= b.Max;
         }
 
         private struct Range
