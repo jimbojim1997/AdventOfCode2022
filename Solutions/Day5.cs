@@ -28,6 +28,33 @@ namespace AdventOfCode2022.Solutions
             return new string(stacks.Select(s => s.TryPop(out char item) ? item : ' ').ToArray());
         }
 
+        public static string SolvePart2(string input)
+        {
+            string[] sections = input.Split("\n\n");
+            string stateText = sections[0];
+            string instructionsText = sections[1];
+
+            Stack<char>[] stacks = ParseStateText(stateText);
+
+            Stack<char> tempStack = new Stack<char>();
+            foreach (Instruction instruction in ParseInstructions(instructionsText))
+            {
+                for (int i = 0; i < instruction.Count; i++)
+                {
+                    char item = stacks[instruction.From - 1].Pop();
+                    tempStack.Push(item);
+                }
+
+                for (int i = 0; i < instruction.Count; i++)
+                {
+                    char item = tempStack.Pop();
+                    stacks[instruction.To - 1].Push(item);
+                }   
+            }
+
+            return new string(stacks.Select(s => s.TryPop(out char item) ? item : ' ').ToArray());
+        }
+
         private static Stack<char>[] ParseStateText(string input)
         {
             string[] lines = input.Split("\n");
