@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 
 namespace AdventOfCode2022.Solutions
 {
@@ -12,10 +13,10 @@ namespace AdventOfCode2022.Solutions
 
             int result = 0;
 
-            Queue<Directory> directories= new Queue<Directory>();
+            Queue<Directory> directories = new Queue<Directory>();
             directories.Enqueue(root);
 
-            while(directories.Count > 0)
+            while (directories.Count > 0)
             {
                 Directory dir = directories.Dequeue();
                 foreach (var subDir in dir.Nodes.Where(n => n is Directory).Cast<Directory>()) directories.Enqueue(subDir);
@@ -25,6 +26,33 @@ namespace AdventOfCode2022.Solutions
             }
 
             return result;
+        }
+
+        public static int SolvePart2(string input)
+        {
+            Directory root = ParseInput(input);
+
+            const int totalSpace = 70_000_000;
+            const int requiredSpace = 30_000_000;
+            int usedSpace = root.Size;
+            int unusedSpace = totalSpace - usedSpace;
+            int spaceToFree = requiredSpace - unusedSpace;
+
+            int smallestDirectorySize = int.MaxValue;
+
+            Queue<Directory> directories = new Queue<Directory>();
+            directories.Enqueue(root);
+
+            while (directories.Count > 0)
+            {
+                Directory dir = directories.Dequeue();
+                foreach (var subDir in dir.Nodes.Where(n => n is Directory).Cast<Directory>()) directories.Enqueue(subDir);
+
+                int size = dir.Size;
+                if (size >= spaceToFree && size <= smallestDirectorySize) smallestDirectorySize = size;
+            }
+
+            return smallestDirectorySize;
         }
 
         private static Directory ParseInput(string input)
@@ -72,6 +100,7 @@ namespace AdventOfCode2022.Solutions
         {
             string Name { get; }
             int Size { get; }
+            string ToString(int indent);
         }
 
         [DebuggerDisplay("{Name}")]
@@ -82,6 +111,14 @@ namespace AdventOfCode2022.Solutions
 
             public required string Name { get; set; }
             public int Size { get => Nodes.Select(n => n.Size).Sum(); }
+
+            public override string ToString() => ToString(0);
+
+            public string ToString(int indent)
+            {
+                int nextIndent = indent + 2;
+                return $"{"".PadLeft(indent)}- {Name} (dir, size={Size})\n{string.Join('\n', Nodes.Select(n => n.ToString(nextIndent)))}";
+            }
         }
 
         [DebuggerDisplay("{Name}")]
@@ -89,6 +126,9 @@ namespace AdventOfCode2022.Solutions
         {
             public required string Name { get; set; }
             public required int Size { get; set; }
+
+            public override string ToString() => $"- {Name} (file, size={Size})";
+            public string ToString(int indent) => $"{"".PadLeft(indent)}- {Name} (file, size={Size})";
         }
     }
 }
