@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
 
 namespace AdventOfCode2022.Solutions
 {
+    //https://adventofcode.com/2022/day/7
     public static class Day7
     {
         public static int SolvePart1(string input)
