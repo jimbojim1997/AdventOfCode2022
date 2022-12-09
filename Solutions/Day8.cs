@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.ExceptionServices;
 
 namespace AdventOfCode2022.Solutions
@@ -13,12 +14,26 @@ namespace AdventOfCode2022.Solutions
             SetVisibilities(forrest);
 
             int result = 0;
-            foreach(Tree tree in forrest)
+            foreach (Tree tree in forrest)
             {
                 if (tree.Visible) result++;
             }
 
             return result;
+        }
+
+        public static int SolvePart2(string input)
+        {
+            var forrest = BuildForrest(input);
+            var scores = CalculateScenicScores(forrest);
+
+            int max = 0;
+            foreach (int score in scores)
+            {
+                if (score > max) max = score;
+            }
+
+            return max;
         }
 
         private static Tree[,] BuildForrest(string input)
@@ -108,6 +123,68 @@ namespace AdventOfCode2022.Solutions
                     }
                 }
             }
+        }
+
+        private static int[,] CalculateScenicScores(Tree[,] forrest)
+        {
+            int xMax = forrest.GetLength(0);
+            int yMax = forrest.GetLength(1);
+            int[,] scenicScores = new int[xMax, yMax];
+
+            for (int y = 0; y < yMax; y++)
+            {
+                for (int x = 0; x < xMax; x++)
+                {
+                    Tree current = forrest[x, y];
+                    int maxHeight = current.Height;
+                    int score = 0;
+                    int totalScore;
+
+                    //look up
+                    for (int yl = y - 1; yl >= 0; yl--)
+                    {
+                        score++;
+                        Tree viewed = forrest[x, yl];
+                        if (viewed.Height >= maxHeight) break;
+                    }
+                    totalScore = score;
+
+                    //look down
+                    score = 0;
+                    for (int yl = y + 1; yl < yMax; yl++)
+                    {
+                        score++;
+                        Tree viewed = forrest[x, yl];
+                        if (viewed.Height >= maxHeight) break;
+                    }
+                    totalScore *= score;
+
+                    //look left
+                    score = 0;
+                    for (int xl = x - 1; xl >= 0; xl--)
+                    {
+                        score++;
+                        Tree viewed = forrest[xl, y];
+                        if (viewed.Height >= maxHeight) break;
+                    }
+                    totalScore *= score;
+
+                    //look right
+                    score = 0;
+                    maxHeight = current.Height;
+                    for (int xl = x + 1; xl < xMax; xl++)
+                    {
+                        score++;
+                        Tree viewed = forrest[xl, y];
+                        if (viewed.Height >= maxHeight) break;
+                    }
+                    totalScore *= score;
+
+                    scenicScores[x, y] = totalScore;
+                }
+            }
+
+            return scenicScores;
         }
 
         [DebuggerDisplay("{Height} {Visible}")]
