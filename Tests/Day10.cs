@@ -12,5 +12,18 @@
 
             Assert.That(actual, Is.EqualTo(expected));
         }
+
+        [Theory]
+        [TestCase("Day10Part1Example.txt", "Day10Part2ExampleOutput.txt")]
+        [TestCase("Day10Part1Puzzle.txt","Day10Part2PuzzleOutput.txt")]
+        public void SolvePart2(string inputFile, string expectedFile)
+        {
+            string input = File.ReadAllText(inputFile);
+            string actual = Solutions.Day10.SolvePart2(input);
+
+            string expected = File.ReadAllText(expectedFile);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }
