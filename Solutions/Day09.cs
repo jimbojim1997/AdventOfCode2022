@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AdventOfCode2022.Solutions
 {
-    public static class Day9
+    public static class Day09
     {
         public static int SolvePart1(string input)
         {

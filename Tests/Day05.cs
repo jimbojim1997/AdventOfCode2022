@@ -1,25 +1,25 @@
 ﻿namespace AdventOfCode2022.Tests
 {
-    internal class Day5
+    internal class Day05
     {
         [Theory]
-        [TestCase("Day5Part1Example.txt", "CMZ")]
-        [TestCase("Day5Part1Puzzle.txt", "TLFGBZHCN")]
+        [TestCase("Day05Example.txt", "CMZ")]
+        [TestCase("Day05Puzzle.txt", "TLFGBZHCN")]
         public void SolvePart1(string inputFile, string expected)
         {
             string input = File.ReadAllText(inputFile);
-            string actual = Solutions.Day5.SolvePart1(input);
+            string actual = Solutions.Day05.SolvePart1(input);
 
             Assert.That(actual, Is.EqualTo(expected));
         }
 
         [Theory]
-        [TestCase("Day5Part1Example.txt", "MCD")]
-        [TestCase("Day5Part1Puzzle.txt", "QRQFHFWCL")]
+        [TestCase("Day05Example.txt", "MCD")]
+        [TestCase("Day05Puzzle.txt", "QRQFHFWCL")]
         public void SolvePart2(string inputFile, string expected)
         {
             string input = File.ReadAllText(inputFile);
-            string actual = Solutions.Day5.SolvePart2(input);
+            string actual = Solutions.Day05.SolvePart2(input);
 
             Assert.That(actual, Is.EqualTo(expected));
         }

@@ -29,43 +29,43 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Day10Part1Example.txt">
+    <None Update="Day10Example.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day10Part1Puzzle.txt">
+    <None Update="Day10Puzzle.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day10Part2ExampleOutput.txt">
+    <None Update="Day10ExampleOutput.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day10Part2PuzzleOutput.txt">
+    <None Update="Day10PuzzleOutput.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day5Part1Example.txt">
+    <None Update="Day05Example.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day5Part1Puzzle.txt">
+    <None Update="Day05Puzzle.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day7Part1Example.txt">
+    <None Update="Day07Example.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day7Part1Puzzle.txt">
+    <None Update="Day07Puzzle.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day8Part1Example.txt">
+    <None Update="Day08Example.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day8Part1Puzzle.txt">
+    <None Update="Day08Puzzle.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day9Part1Example.txt">
+    <None Update="Day09Example1.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day9Part1Puzzle.txt">
+    <None Update="Day09Puzzle.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day9Part2Example.txt">
+    <None Update="Day09Example2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

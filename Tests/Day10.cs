@@ -3,8 +3,8 @@
     internal class Day10
     {
         [Theory]
-        [TestCase("Day10Part1Example.txt", 13140)]
-        [TestCase("Day10Part1Puzzle.txt", 15360)]
+        [TestCase("Day10Example.txt", 13140)]
+        [TestCase("Day10Puzzle.txt", 15360)]
         public void SolvePart1(string inputFile, int expected)
         {
             string input = File.ReadAllText(inputFile);
@@ -14,8 +14,8 @@
         }
 
         [Theory]
-        [TestCase("Day10Part1Example.txt", "Day10Part2ExampleOutput.txt")]
-        [TestCase("Day10Part1Puzzle.txt","Day10Part2PuzzleOutput.txt")]
+        [TestCase("Day10Example.txt", "Day10ExampleOutput.txt")]
+        [TestCase("Day10Puzzle.txt","Day10PuzzleOutput.txt")]
         public void SolvePart2(string inputFile, string expectedFile)
         {
             string input = File.ReadAllText(inputFile);

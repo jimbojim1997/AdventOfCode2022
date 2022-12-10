@@ -3,7 +3,7 @@
 namespace AdventOfCode2022.Solutions
 {
     //https://adventofcode.com/2022/day/2
-    public static class Day2
+    public static class Day02
     {
         public static int SolvePart1(string input)
         {

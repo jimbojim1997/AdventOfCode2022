@@ -6,7 +6,7 @@ using System.Runtime.ExceptionServices;
 namespace AdventOfCode2022.Solutions
 {
     //https://adventofcode.com/2022/day/8
-    public static class Day8
+    public static class Day08
     {
         public static int SolvePart1(string input)
         {
